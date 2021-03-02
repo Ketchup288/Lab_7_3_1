@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//void Create(int** a, const int rowCount, const int colCount, const int Low, const int High);
+// void Create(int** a, const int rowCount, const int colCount, const int Low, const int High);
 void Input(int** a, const int rowCount, const int colCount);
 void Print(int** a, const int rowCount, const int colCount);
 void New_Matrix(int** a, int** b, const int rowCount, const int colCount);
@@ -12,10 +12,11 @@ void New_Matrix(int** a, int** b, const int rowCount, const int colCount);
 
 int main()
 {
-	srand((unsigned)time(NULL));
-	int Low = 1;
-	int High = 20;
-
+    /*
+    srand((unsigned)time(NULL));
+    int Low = -100;
+    int High = -1;
+        */
 
     int n;
     cout << "n = "; cin >> n;
@@ -61,6 +62,7 @@ int main()
 
 
 
+
 void Input(int** a, const int rowCount, const int colCount)
 {
         for (int i = 0; i < rowCount; i++)
@@ -99,17 +101,17 @@ void New_Matrix(int** a, int** b, const int rowCount, const int colCount)
     for (int rowNo = 0; rowNo < rowCount; rowNo++) {
         for (int colNo = 0; colNo < colCount; colNo++)
         {
-            double tmp = a[rowNo][colNo]; int col = 1;
-            if (rowNo > 0) // перевірка чи є сусід зліва
+            int tmp = a[rowNo][colNo]; int col = 1; // добавляє до розрахунків сам елемент
+            if (rowNo > 0)  // далі поетапна перевірка кожної з позицій навколо елемента
             {
                 tmp += a[rowNo - 1][colNo];
                 col++;
-                if (colNo > 0) // перевірка чи є сусід зверху
+                if (colNo > 0) 
                 {
-                    tmp += a[rowNo - 1][colNo - 1]; // далі поетапна перевірка кожної з позицій навколо елемента
+                    tmp += a[rowNo - 1][colNo - 1]; 
                     col++;
                 }
-                if (colNo < colCount - 1) // 
+                if (colNo < colCount - 1) 
                 {
                     tmp += a[rowNo - 1][colNo + 1];
                     col++;
@@ -119,7 +121,7 @@ void New_Matrix(int** a, int** b, const int rowCount, const int colCount)
             {
                 tmp += a[rowNo + 1][colNo];
                 col++;
-                if (colNo > 0) // сусід зверху
+                if (colNo > 0) 
                 {
                     tmp += a[rowNo + 1][colNo - 1];
                     col++;
